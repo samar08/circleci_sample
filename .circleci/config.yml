@@ -1,7 +1,7 @@
 jobs:
   build:
     machine:
-      image: amazon/suse-sles-15-sp3-v20211219-hvm-ssd-x86_64
+      image: ami-04b21e29a03aa7701
     steps:
       - checkout
       #- run:
