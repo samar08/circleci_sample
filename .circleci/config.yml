@@ -6,9 +6,6 @@ jobs:
     steps:
       - checkout
       #- run:
-      #    name: updating apt-get
-      #    command: sudo apt-get update
-      #- run:
       #    name: installing awscli
       #    command: sudo apt-get install awscli
       #- run:
