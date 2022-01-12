@@ -1,7 +1,8 @@
 jobs:
   build:
-    machine:
-      image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
+    docker:
+      - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
+      
     steps:
       - checkout
       #- run:
