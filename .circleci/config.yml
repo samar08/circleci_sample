@@ -20,7 +20,7 @@ jobs:
       #    command: systemctl start containerbuild-regionsrv
       - run:
           name: buidling image in docker instance
-          command: docker build -t custom_sles_image --network host ./dockerfile_folder/
+          command: docker build -t custom_sles_image ./dockerfile_folder/
 
 workflows:
   version: 2
