@@ -16,10 +16,10 @@ workflows:
           create-repo: true
           dockerfile: Dockerfile
           path: ./dockerfile_folder
-          region: AWS_REGION
+          region: AWS_ECR_REGION
           repo: custom_sles_image
           tag: "latest"
-#jobs:
+##jobs:
 #  build:
 
 #steps:
