@@ -18,7 +18,15 @@ jobs:
       - run:
           name: buidling image in docker instance
           command: docker build -t custom_sles_image ./dockerfile_folder/
-
+      - run:
+          name: aws registry login
+          command: aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 731786372306.dkr.ecr.ap-south-1.amazonaws.com
+      - run:
+          name: tag the image
+          command: docker tag custom_sles_image:latest 731786372306.dkr.ecr.ap-south-1.amazonaws.com/custom_sles_image:latest
+      - run:
+          name: push the image to ecr
+          command: docker push 731786372306.dkr.ecr.ap-south-1.amazonaws.com/custom_sles_image:latest
 workflows:
   version: 2
   workflow_name:
