@@ -47,6 +47,7 @@ workflows:
 #- run:
 #    name: push the image to ecr
 #    command: docker push 731786372306.dkr.ecr.ap-south-1.amazonaws.com/custom_sles_image:latest
+
 #workflows:
 #version: 2
 #  workflow_name:
