@@ -9,8 +9,8 @@ ARG METALLB_URL="https://raw.githubusercontent.com/metallb/metallb/${METALLB_VER
 
 
 # Proxies - not required when using public cloud image using circleci
-ENV http_proxy http://web-proxy.houston.hpecorp.net:8080
-ENV https_proxy http://web-proxy.houston.hpecorp.net:8080
+#ENV http_proxy http://web-proxy.houston.hpecorp.net:8080
+#ENV https_proxy http://web-proxy.houston.hpecorp.net:8080
 
 
 
@@ -26,18 +26,16 @@ ENV https_proxy http://web-proxy.houston.hpecorp.net:8080
 
 
 WORKDIR ${LCMDIR}
-RUN mkdir scripts
-RUN mkdir manifests
-ADD scripts/ ./scripts/
-#ADD manifests/ ./manifests/
-#RUN set -x \
-#&& apk --no-cache add \
-#curl \
-#wget \
-#jq
-RUN apk add curl
-RUN apk add --no-cache wget
-RUN apk add jq
+#RUN mkdir scripts
+#RUN mkdir manifests
+ADD scripts/ scripts/
+ADD manifests/ manifests/
+RUN set -x \
+&& apk --no-cache add \
+curl \
+wget \
+jq
+
 RUN set -x \
 && curl --output "manifests/metallb.yaml" --fail --location ${METALLB_URL} \
 && sed -i 's/Always/IfNotPresent/g' manifests/metallb.yaml
