@@ -26,8 +26,10 @@ ENV https_proxy http://web-proxy.houston.hpecorp.net:8080
 
 
 WORKDIR ${LCMDIR}
-ADD scripts/ scripts/
-ADD manifests/ manifests/
+RUN mkdir scripts
+RUN mkdir manifests
+ADD scripts/ ./scripts/
+ADD manifests/ ./manifests/
 RUN set -x \
 && apk --no-cache add \
 curl \

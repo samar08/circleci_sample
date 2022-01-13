@@ -16,7 +16,7 @@ workflows:
           aws-secret-access-key: AWS_ECR_SECRET_ACCESS_KEY
           create-repo: true
           dockerfile: Dockerfile
-          path: ./dockerfile_folder
+          path: .
           region: AWS_ECR_REGION
           repo: final_custom_image
           tag: "latest"
