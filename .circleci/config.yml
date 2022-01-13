@@ -18,7 +18,7 @@ workflows:
           dockerfile: Dockerfile
           path: ./dockerfile_folder
           region: AWS_ECR_REGION
-          repo: custom_sles_image
+          repo: final_custom_image
           tag: "latest"
 ##jobs:
 #  build:
