@@ -30,11 +30,14 @@ RUN mkdir scripts
 RUN mkdir manifests
 ADD scripts/ ./scripts/
 #ADD manifests/ ./manifests/
-RUN set -x \
-&& apk --no-cache add \
-curl \
-wget \
-jq
+#RUN set -x \
+#&& apk --no-cache add \
+#curl \
+#wget \
+#jq
+RUN apk add curl
+RUN apk add --no-cache wget
+RUN apk add jq
 RUN set -x \
 && curl --output "manifests/metallb.yaml" --fail --location ${METALLB_URL} \
 && sed -i 's/Always/IfNotPresent/g' manifests/metallb.yaml
