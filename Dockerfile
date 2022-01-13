@@ -29,7 +29,7 @@ WORKDIR ${LCMDIR}
 RUN mkdir scripts
 RUN mkdir manifests
 ADD scripts/ ./scripts/
-ADD manifests/ ./manifests/
+#ADD manifests/ ./manifests/
 RUN set -x \
 && apk --no-cache add \
 curl \
