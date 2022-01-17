@@ -49,5 +49,6 @@ ARG LCMDIR=lhcp-lcm
 COPY scripts/upgrade.sh /bin/upgrade.sh
 COPY --from=verify ${LCMDIR}/scripts/ ${LCMDIR}/scripts/
 COPY --from=verify ${LCMDIR}/manifests/ ${LCMDIR}/manifests/
+RUN chmod +x /bin/upgrade.sh
 ENTRYPOINT ["/bin/upgrade.sh"]
 CMD ["upgrade"]
