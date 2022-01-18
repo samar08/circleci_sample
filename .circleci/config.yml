@@ -1,15 +1,15 @@
 version: 2.1
-executors:
-  hpe-executor:
-    docker:
-      - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
+# executors:
+#   hpe-executor:
+#     docker:
+#       - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
 orbs:
   aws-ecr: circleci/aws-ecr@7.3.0
 workflows:
   build_and_push_image:
     jobs:
       - aws-ecr/build-and-push-image:
-          executor: hpe-executor
+         
           setup-remote-docker: true
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ECR_ACCESS_KEY_ID
