@@ -6,40 +6,40 @@ executors:
 orbs:
   aws-ecr: circleci/aws-ecr@7.3.0
 
-jobs:
-  vsetter:
-    docker:
-      - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
-    steps:
-      - run:
-          name: tag setter
-          command: export METALLBVERSION="new_latest"
-  vcaller:
-    docker:
-      - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
-    steps:
-      - run:
-          name: tag caller
-          command: echo ${METALLBVERSION}
+# jobs:
+#   vsetter:
+#     docker:
+#       - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
+#     steps:
+#       - run:
+#           name: tag setter
+#           command: export METALLBVERSION="new_latest"
+#   vcaller:
+#     docker:
+#       - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
+#     steps:
+#       - run:
+#           name: tag caller
+#           command: echo ${METALLBVERSION}
 
 workflows:
   build_and_push_image:
     jobs:
-      - vsetter
-      - vcaller:
-          requires: ["vsetter"]
+      # - vsetter
+      # - vcaller:
+      #     requires: ["vsetter"]
 
-      # - aws-ecr/build-and-push-image:
-      #     setup-remote-docker: true
-      #     account-url: AWS_ECR_ACCOUNT_URL
-      #     aws-access-key-id: AWS_ECR_ACCESS_KEY_ID
-      #     aws-secret-access-key: AWS_ECR_SECRET_ACCESS_KEY
-      #     create-repo: true
-      #     dockerfile: Dockerfile
-      #     path: .
-      #     region: AWS_ECR_REGION
-      #     repo: final_custom_image
-      #     tag: "latest"
+      - aws-ecr/build-and-push-image:
+          setup-remote-docker: true
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ECR_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECR_SECRET_ACCESS_KEY
+          create-repo: true
+          dockerfile: Dockerfile
+          path: .
+          region: AWS_ECR_REGION
+          repo: final_custom_image
+          tag: "latest"
 ##jobs:
 #  build:
 
