@@ -26,19 +26,21 @@ workflows:
   build_and_push_image:
     jobs:
       - vsetter
-      - vcaller
+      - vcaller:
+          requires: ['vsetter']
 
-      - aws-ecr/build-and-push-image:
-          setup-remote-docker: true
-          account-url: AWS_ECR_ACCOUNT_URL
-          aws-access-key-id: AWS_ECR_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_ECR_SECRET_ACCESS_KEY
-          create-repo: true
-          dockerfile: Dockerfile
-          path: .
-          region: AWS_ECR_REGION
-          repo: final_custom_image
-          tag: "latest"
+
+      # - aws-ecr/build-and-push-image:
+      #     setup-remote-docker: true
+      #     account-url: AWS_ECR_ACCOUNT_URL
+      #     aws-access-key-id: AWS_ECR_ACCESS_KEY_ID
+      #     aws-secret-access-key: AWS_ECR_SECRET_ACCESS_KEY
+      #     create-repo: true
+      #     dockerfile: Dockerfile
+      #     path: .
+      #     region: AWS_ECR_REGION
+      #     repo: final_custom_image
+      #     tag: "latest"
 ##jobs:
 #  build:
 
