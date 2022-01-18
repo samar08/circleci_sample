@@ -9,14 +9,14 @@ orbs:
 jobs:
   vsetter:
     docker:
-     - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2 
+      - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
     steps:
       - run:
           name: tag setter
-          command: bash ./replacetags.sh
+          command: export METALLBVERSION="new_latest"
   vcaller:
     docker:
-     - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2 
+      - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
     steps:
       - run:
           name: tag caller
@@ -27,8 +27,7 @@ workflows:
     jobs:
       - vsetter
       - vcaller:
-          requires: ['vsetter']
-
+          requires: ["vsetter"]
 
       # - aws-ecr/build-and-push-image:
       #     setup-remote-docker: true
