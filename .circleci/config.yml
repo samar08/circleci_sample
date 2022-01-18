@@ -30,7 +30,7 @@ workflows:
       #     requires: ["vsetter"]
 
       - aws-ecr/build-and-push-image:
-          setup-remote-docker: true
+          #setup-remote-docker: true
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ECR_ACCESS_KEY_ID
           aws-secret-access-key: AWS_ECR_SECRET_ACCESS_KEY
