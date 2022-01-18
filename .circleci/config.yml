@@ -1,38 +1,35 @@
 version: 2.1
-# executors:
-#   hpe-executor:
-#     docker:
-#       - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
+executors:
+  hpe-executor:
+    docker:
+      - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2
 orbs:
   aws-ecr: circleci/aws-ecr@7.3.0
 
 jobs:
-  variable_setter:
-    #docker:
-    #  - image: 657273346644.dkr.ecr.us-west-2.amazonaws.com/mirror/circleci/golang:1.12  # Arbitrary, there doesn't seem to be a circleci 'base' image.
+  vsetter:
+    docker:
+     - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2 
     steps:
       - run:
           name: tag setter
           command: bash ./replacetags.sh
-  variable_caller:
-    #docker:
-    #  - image: 657273346644.dkr.ecr.us-west-2.amazonaws.com/mirror/circleci/golang:1.12  # Arbitrary, there doesn't seem to be a circleci 'base' image.
+  vcaller:
+    docker:
+     - image: 657273346644.dkr.ecr.us-east-1.amazonaws.com/hpe-hcss/containerize:v1.2.2 
     steps:
       - run:
           name: tag caller
           command: echo ${METALLBVERSION}
 
-    
-
 workflows:
   build_and_push_image:
     jobs:
-      - variable_setter
-      - variable_caller
+      - vsetter
+      - vcaller
 
       - aws-ecr/build-and-push-image:
-         
-          #setup-remote-docker: true
+          setup-remote-docker: true
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ECR_ACCESS_KEY_ID
           aws-secret-access-key: AWS_ECR_SECRET_ACCESS_KEY
