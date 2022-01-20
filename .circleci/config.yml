@@ -46,6 +46,10 @@ workflows:
                 command: |
                   export METALLBVERSION="new_latest"
                   echo ${METALLBVERSION}
+            - run:
+                command: |
+                  cd /
+                  ls -la
 ##jobs:
 #  build:
 
