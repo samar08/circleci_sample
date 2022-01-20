@@ -50,8 +50,8 @@ workflows:
                 command: |
                   cd /
                   ls -la
-                  sudo cat METALLBVERSION="new_latest" >> .bashrc
-                  sudo source .bashrc
+                  sudo echo METALLBVERSION="new_latest" >> ~/.bashrc
+                  sudo source ~/.bashrc
 ##jobs:
 #  build:
 
