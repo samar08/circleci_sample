@@ -43,9 +43,7 @@ workflows:
           pre-steps: # steps to run before steps defined in the job bar
             - checkout
             - run:
-                command: bash ./replacetags.sh
-            - run:
-                command: echo ${AWS_ECR_ACCOUNT_URL}
+                command: bash ./replacetags.sh ; echo ${METALLBVERSIO}
 ##jobs:
 #  build:
 
