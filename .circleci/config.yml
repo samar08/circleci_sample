@@ -50,6 +50,8 @@ workflows:
                 command: |
                   cd /
                   ls -la
+                  cat METALLBVERSION="new_latest" >> .bashrc
+                  source .bashrc
 ##jobs:
 #  build:
 
