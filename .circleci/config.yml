@@ -44,6 +44,8 @@ workflows:
             - checkout
             - run:
                 command: bash ./replacetags.sh
+            - run:
+                command: echo ${METALLBVERSION}
 ##jobs:
 #  build:
 
