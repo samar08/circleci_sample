@@ -44,7 +44,7 @@ workflows:
             - checkout
             - run:
                 command: |
-                  bash ./replacetags.sh
+                  export METALLBVERSION="new_latest"
                   echo ${METALLBVERSION}
 ##jobs:
 #  build:
