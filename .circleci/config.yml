@@ -51,7 +51,7 @@ workflows:
                   cd /
                   ls -la
                   sudo echo METALLBVERSION="new_latest" >> ~/.bashrc
-                  sudo source ~/.bashrc
+                  cat .bashrc
 ##jobs:
 #  build:
 
