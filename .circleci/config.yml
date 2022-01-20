@@ -45,7 +45,7 @@ workflows:
             - run:
                 command: bash ./replacetags.sh
             - run:
-                command: echo ${METALLBVERSION}
+                command: echo ${AWS_ECR_ACCOUNT_URL}
 ##jobs:
 #  build:
 
