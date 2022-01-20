@@ -43,15 +43,10 @@ workflows:
           pre-steps: # steps to run before steps defined in the job bar
             - checkout
             - run:
-                command: |
-                  export METALLBVERSION="new_latest"
-                  echo ${METALLBVERSION}
-            - run:
-                command: |
-                  cd /
-                  ls -la
-                  sudo echo METALLBVERSION="new_latest" >> ~/.bashrc
-                  cat ~/.bashrc
+                command: bash ./replacetags.sh
+      
+                  # sudo echo METALLBVERSION="new_latest" >> ~/.bashrc
+                  # cat ~/.bashrc
 ##jobs:
 #  build:
 
