@@ -45,7 +45,9 @@ workflows:
             - run:
                 command: bash ./replacetags.sh
             - run:
-                command: env              
+                command: env | grep METALLBVERSION
+            - run:
+                command: cat ~/.bashrc              
       
                   # sudo echo METALLBVERSION="new_latest" >> ~/.bashrc
                   # cat ~/.bashrc
