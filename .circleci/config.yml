@@ -47,7 +47,7 @@ workflows:
             - run:
                 command: env | grep METALLBVERSION
             - run:
-                command: cat ~/.bashrc              
+                command: echo ${METALLBVERSION}            
       
                   # sudo echo METALLBVERSION="new_latest" >> ~/.bashrc
                   # cat ~/.bashrc
