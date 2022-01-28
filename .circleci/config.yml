@@ -25,10 +25,6 @@ orbs:
 workflows:
   build_and_push_image:
     jobs:
-      # - vsetter
-      # - vcaller:
-      #     requires: ["vsetter"]
-
       - aws-ecr/build-and-push-image:
           #setup-remote-docker: true
           account-url: AWS_ECR_ACCOUNT_URL
@@ -39,18 +35,11 @@ workflows:
           path: .
           region: AWS_ECR_REGION
           repo: final_custom_image
-          tag: ${METALLBVERSIO}
+          tag: ${METALLBVERSION}
           pre-steps: # steps to run before steps defined in the job bar
             - checkout
             - run:
                 command: bash ./replacetags.sh
-            - run:
-                command: env | grep METALLBVERSION
-            - run:
-                command: echo ${METALLBVERSION}            
-      
-                  # sudo echo METALLBVERSION="new_latest" >> ~/.bashrc
-                  # cat ~/.bashrc
 ##jobs:
 #  build:
 
