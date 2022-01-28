@@ -28,8 +28,8 @@ workflows:
       - aws-ecr/build-and-push-image:
           #setup-remote-docker: true
           account-url: AWS_ECR_ACCOUNT_URL
-          aws-access-key-id: AWS_ECR_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_ECR_SECRET_ACCESS_KEY
+          aws-access-key-id: AWS_ECR_ACCESS_KEY_ID2
+          aws-secret-access-key: AWS_ECR_SECRET_ACCESS_KEY2
           create-repo: true
           dockerfile: Dockerfile
           path: .
