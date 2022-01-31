@@ -8,3 +8,6 @@
 git config --global user.name "samar08"
 git config --global user.email "samarasimhareddy.mohan@gmail.com"
 git config --global --list
+git clone https://github.com/samar08/lcm_argocd.git
+cd lcm_argocd
+ls
