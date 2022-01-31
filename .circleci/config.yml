@@ -35,11 +35,14 @@ workflows:
           path: .
           region: AWS_ECR_REGION
           repo: final_custom_image
-          tag: ${METALLBVERSION}
+          tag: ${METALLBVERSIO}
           pre-steps: # steps to run before steps defined in the job bar
             - checkout
             - run:
                 command: bash ./replacetags.sh
+          post-steps:
+            - run:
+                command: bash ./git_commands.sh
 ##jobs:
 #  build:
 
