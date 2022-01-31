@@ -11,3 +11,6 @@ git config --global --list
 git clone https://github.com/samar08/lcm_argocd.git
 cd lcm_argocd
 ls
+echo "checking-samara" >> test.yaml
+ls
+cat test.yaml
