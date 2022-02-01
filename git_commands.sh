@@ -10,12 +10,13 @@ git config --global user.email "samarasimhareddy.mohan@gmail.com"
 git config --global --list
 git clone https://github.com/samar08/lcm_argocd.git
 cd lcm_argocd
-echo 'python updateimageversion'
-python updateImageVersion.py
+
+echo 'python /dev/updateimageversion'
+python /dev/updateImageVersion.py
 echo 'git add'
 git add .
 echo 'git commit'
-git commit -m "updated image version ${METALLBVERSION}"
+git commit -m "updated image version to ${METALLBVERSION}"
 echo 'git push origin...'
 git push origin
 cd ..
