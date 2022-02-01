@@ -10,8 +10,9 @@ git config --global user.email "samarasimhareddy.mohan@gmail.com"
 git config --global --list
 git clone https://github.com/samar08/lcm_argocd.git
 cd lcm_argocd
-python updateImageVersion.py
-git add .
-git commit -m "updated image version ${METALLBVERSION}"
-git push origin
-cd ..
+pwd
+#python updateImageVersion.py
+#git add .
+#git commit -m "updated image version ${METALLBVERSION}"
+#git push origin
+#cd ..
