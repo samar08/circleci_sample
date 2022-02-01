@@ -11,7 +11,7 @@ git config --global --list
 git clone https://github.com/samar08/lcm_argocd.git
 cd lcm_argocd
 
-echo 'python /dev/updateimageversion'
+echo 'python ./dev/updateimageversion'
 python ./dev/updateImageVersion.py
 echo 'git add'
 git add .
