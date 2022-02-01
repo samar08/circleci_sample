@@ -16,6 +16,6 @@ echo 'git add'
 git add .
 echo 'git commit'
 git commit -m "updated image version ${METALLBVERSION}"
-echo 'git push origin'
+echo 'git push origin...'
 git push origin
 cd ..
